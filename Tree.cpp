@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include "Tree.hpp"
 #include "exception"
@@ -23,6 +24,7 @@ void ariel::Tree:: insert(int i){
     if (contains(i)){
         throw "received key which is already in the table";
     }
+
     insertRec(roott, i);
 }
 
@@ -54,6 +56,7 @@ void ariel::Tree:: insertRec(Node* node, int i){
 }
 
 int ariel::Tree:: root(){
+    if (roott == NULL) throw "there is no root in the tree!";
     return roott->getData();
 
 }
@@ -168,8 +171,6 @@ ariel::Node* ariel::Tree::removeRec(Node * roott, int i) {
     else {
 
 
-
-
         // Case 1:  No child
         if(roott->getLeft() == NULL && roott->getRight() == NULL) {
             delete roott;
@@ -226,3 +227,5 @@ void ariel::Tree::print(ariel::Node *pNode) {
             cout << "\n Deleting node: " << root->getData();
             delete root;
         }
+
+
